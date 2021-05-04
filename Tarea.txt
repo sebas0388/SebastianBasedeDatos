@@ -1,0 +1,33 @@
+listar todos los actores mayores de 21 años:  SELECT * FROM actores WHERE edad > 21;
+
+listar todos los actores M/F , (contar):  SELECT COUNT(sexo) FROM actores WHERE sexo LIKE "Masculino";
+
+listar todas las peliculas en la que trabajo el actor con id 3:  SELECT peliculas.titulo FROM peliculas
+INNER JOIN actores_peliculas
+WHERE actores_peliculas.Actores_idActores = 3 
+AND peliculas.idPeliculas = actores_peliculas.Peliculas_idPeliculas;
+
+
+listar todos los actores de la pelicula con id 6:  SELECT actores.nombre FROM actores
+INNER JOIN actores_peliculas
+WHERE actores_peliculas.idPeliculas= 6
+AND actores.idActores = actores_peliculas.idActores;
+
+
+modificar el nombre del actor 3: UPDATE actores SET nombre = "Pedro Perez" WHERE idActores = 3;
+
+modificar el genero de una pelicula:  UPDATE genero SET nombre = "Comedia" WHERE idgenero = 2;
+
+modificar nacionalidad actor 4:  UPDATE actores SET idNacionalidad = 0 WHERE idActores = 2;
+
+
+eliminar un actor:  DELETE FROM actores WHERE nombre LIKE "Scarlett Johansson"
+ 
+eliminar una pelicula:  DELETE FROM peliculas WHERE titulo LIKE "End Game"
+
+
+insertar una pelicula: INSERT INTO peliculas ( titulo, genero, Nacionalidad_idNacionalidad)
+ VALUES ( "Iron Man", 0 , 1 );
+
+insertar una actor:   INSERT INTO actores ( nombre, edad, sexo, Nacionalidad_idNacionalidad)
+VALUES ( "Hayley Atwell", 39 , 1 , 1 );
